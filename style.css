@@ -1517,6 +1517,10 @@ h3 {
     }
 
     /* Pairing */
+    .pairing {
+        overflow: hidden;
+    }
+
     .pairing-container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -1525,6 +1529,10 @@ h3 {
     .pairing-btn {
         min-height: 44px;
         padding: 0.9rem 1.2rem;
+    }
+
+    .pairing-display {
+        min-height: auto;
     }
 
     .pairing-card {
@@ -1546,10 +1554,6 @@ h3 {
     }
 
     /* Visit */
-    .visit .container {
-        padding-top: 0;
-    }
-
     .visit-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -1557,7 +1561,6 @@ h3 {
 
     .visit-info {
         text-align: center;
-        order: 1;
     }
 
     .visit-info .directions-link {
@@ -1565,7 +1568,6 @@ h3 {
     }
 
     .visit-map {
-        order: 0;
         margin-top: 0;
     }
 
