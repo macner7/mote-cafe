@@ -24,8 +24,8 @@
     --font-sans: 'Inter', sans-serif;
 
     /* Spacing */
-    --gutter: clamp(1.5rem, 4vw, 6rem);
-    --section-pad: clamp(6rem, 12vh, 12rem);
+    --gutter: clamp(1.25rem, 4vw, 6rem);
+    --section-pad: clamp(5rem, 10vh, 12rem);
 
     /* Transitions */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -107,16 +107,19 @@ h1, h2, h3, h4, h5 {
 
 h1 {
     font-family: var(--font-display);
-    font-size: clamp(3.2rem, 8vw, 6rem);
+    font-size: clamp(2.8rem, 8vw, 6rem);
     letter-spacing: -0.02em;
     color: var(--white);
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 h2 {
     font-family: var(--font-serif);
-    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-size: clamp(1.75rem, 4.5vw, 3rem);
     color: var(--accent-deep);
     line-height: 1.15;
+    overflow-wrap: break-word;
 }
 
 h3 {
@@ -437,7 +440,7 @@ h3 {
 }
 
 .hero-subtitle {
-    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-size: clamp(0.95rem, 1.8vw, 1.25rem);
     color: rgba(255, 255, 255, 0.75);
     font-weight: 300;
     line-height: 1.7;
@@ -445,6 +448,9 @@ h3 {
     opacity: 0;
     transform: translateY(20px);
     transition: all var(--t-medium) var(--ease-out-expo);
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-subtitle.visible {
@@ -1375,8 +1381,8 @@ h3 {
    ============================================================ */
 @media (max-width: 768px) {
     :root {
-        --section-pad: clamp(4rem, 8vh, 6rem);
-        --gutter: clamp(1rem, 5vw, 1.5rem);
+        --section-pad: clamp(3.5rem, 8vh, 5.5rem);
+        --gutter: clamp(1.2rem, 5vw, 1.5rem);
     }
 
     body::after {
@@ -1384,15 +1390,17 @@ h3 {
     }
 
     h2 {
-        font-size: clamp(1.65rem, 5.5vw, 2.3rem);
+        font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+        line-height: 1.2;
     }
 
+    /* ── Navigation ── */
     .nav {
-        padding: 1.2rem 0;
+        padding: 1rem 0;
     }
 
     .nav.scrolled {
-        padding: 0.8rem 0;
+        padding: 0.6rem 0;
     }
 
     .nav-links {
@@ -1407,23 +1415,53 @@ h3 {
         padding: 0.8rem 0;
         display: block;
         width: 100%;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    /* Hero */
+    /* ── Hero ── */
     .hero {
         min-height: 100vh;
         min-height: 100dvh;
     }
 
+    .hero-content {
+        padding: 0 var(--gutter);
+        max-width: 100%;
+    }
+
     .hero-title {
-        font-size: clamp(2.6rem, 10vw, 3.8rem);
+        font-size: clamp(2.4rem, 10vw, 3.6rem);
+        letter-spacing: -0.01em;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(0.92rem, 3.5vw, 1.08rem);
+        max-width: 100%;
+        margin-bottom: 2rem;
     }
 
     .hero-subtitle br {
         display: none;
     }
 
-    /* Philosophy */
+    .hero-eyebrow {
+        font-size: 0.65rem;
+        letter-spacing: 0.25em;
+        margin-bottom: 1.2rem;
+    }
+
+    .scroll-cue {
+        gap: 0.6rem;
+    }
+
+    .scroll-line {
+        height: 40px;
+    }
+
+    /* ── Philosophy ── */
     .philosophy {
         flex-direction: column;
         justify-content: flex-start;
@@ -1434,7 +1472,8 @@ h3 {
     .philosophy-image-wrapper {
         position: relative;
         width: 100%;
-        height: 55vh;
+        height: 50vh;
+        max-height: 400px;
         order: -1;
     }
 
@@ -1442,26 +1481,54 @@ h3 {
         background: linear-gradient(180deg,
             var(--bg-primary) 0%,
             rgba(247, 244, 239, 0) 15%,
-            rgba(247, 244, 239, 0) 80%,
+            rgba(247, 244, 239, 0) 75%,
             var(--bg-primary) 100%);
     }
 
     .philosophy-content {
         max-width: 100%;
-        padding: 2rem var(--gutter) var(--section-pad);
+        padding: 1.5rem var(--gutter) var(--section-pad);
         text-align: center;
     }
 
-    /* Menu */
-    .menu-category {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-        padding-bottom: 2.5rem;
+    .philosophy-content h2 {
+        margin-bottom: 1.2rem;
     }
 
-    .menu-category-header {
-        border-bottom: 1px solid rgba(44, 62, 45, 0.08);
-        padding-bottom: 0.8rem;
+    .philosophy-content p {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    /* ── Gallery (Native Swipe & Scroll Snap on Mobile) ── */
+    .gallery {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 2rem 0;
+        scrollbar-width: none;
+    }
+
+    .gallery::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gallery-track {
+        transform: none !important;
+        padding: 0 var(--gutter);
+        gap: 0.75rem;
+    }
+
+    .gallery-track img {
+        scroll-snap-align: start;
+        height: 220px;
+        width: auto;
+        border-radius: 3px;
+    }
+
+    /* ── Menu ── */
+    .menu-tabs {
+        gap: 0.4rem;
     }
 
     .menu-tab-btn {
@@ -1469,14 +1536,35 @@ h3 {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 0.5rem 1.8rem;
+        padding: 0.5rem 1.4rem;
+        font-size: 0.7rem;
+    }
+
+    .menu-category {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .menu-category-header {
+        border-bottom: 1px solid rgba(44, 62, 45, 0.08);
+        padding-bottom: 0.8rem;
+    }
+
+    .menu-category-header h3 {
+        font-size: 1.3rem;
     }
 
     .menu-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.2rem;
-        padding: 0.9rem 0;
+        gap: 0.15rem;
+        padding: 0.85rem 0;
+        min-height: 44px;
+    }
+
+    .menu-item-name {
+        font-size: 1rem;
     }
 
     .menu-item-desc {
@@ -1484,51 +1572,66 @@ h3 {
         padding-left: 0;
         text-align: left;
         max-width: 100%;
+        font-size: 0.8rem;
     }
 
     .menu-boards-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.2rem;
     }
 
-    /* Gallery (Native Swipe & Scroll Snap on Mobile) */
-    .gallery {
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        padding: 3rem 0;
-        scrollbar-width: none; /* Hide scrollbar Firefox */
+    .menu-board-overlay {
+        opacity: 1;
+        background: rgba(26, 26, 24, 0.35);
     }
 
-    .gallery::-webkit-scrollbar {
-        display: none; /* Hide scrollbar Chrome/Safari */
+    /* ── Definition Banner ── */
+    .visual-break {
+        padding: clamp(3.5rem, 8vh, 6rem) var(--gutter);
     }
 
-    .gallery-track {
-        transform: none !important; /* Force override of JS scroll parallax on mobile */
-        padding: 0 var(--gutter);
-        gap: 1rem;
+    .def-title {
+        font-size: clamp(2.4rem, 10vw, 3.5rem);
+        letter-spacing: 0.18em;
     }
 
-    .gallery-track img {
-        scroll-snap-align: start;
-        height: 240px;
-        width: auto;
+    .def-phonetic {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
     }
 
-    /* Pairing */
+    .def-meaning {
+        font-size: 0.95rem;
+    }
+
+    .def-quote {
+        font-size: 0.88rem;
+        margin-top: 1.5rem;
+    }
+
+    /* ── Pairing Guide ── */
     .pairing {
         overflow: hidden;
     }
 
     .pairing-container {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.2rem;
+    }
+
+    .pairing-selector {
+        gap: 0.6rem;
     }
 
     .pairing-btn {
-        min-height: 44px;
-        padding: 0.9rem 1.2rem;
+        min-height: 48px;
+        padding: 0.85rem 1rem;
+        gap: 0.8rem;
+    }
+
+    .pairing-btn .btn-text {
+        font-size: 0.82rem;
+        line-height: 1.35;
     }
 
     .pairing-display {
@@ -1537,30 +1640,52 @@ h3 {
 
     .pairing-card {
         grid-template-columns: 1fr;
-        padding: 1.8rem;
-        gap: 1.5rem;
+        padding: 1.2rem;
+        gap: 1.2rem;
+        border-radius: 6px;
     }
 
     .pair-image {
         order: -1;
+        border-radius: 4px;
     }
 
     .pair-image img {
-        min-height: 220px;
+        min-height: 200px;
+        max-height: 260px;
     }
 
     .pair-info h3 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
-    /* Visit */
+    .pair-desc {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+
+    .flavor-notes {
+        gap: 0.4rem;
+    }
+
+    .flavor-notes span {
+        font-size: 0.68rem;
+        padding: 0.35rem 0.7rem;
+    }
+
+    /* ── Visit Section ── */
     .visit-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
     }
 
     .visit-info {
         text-align: center;
+    }
+
+    .visit-info h2 {
+        margin-bottom: 1.5rem;
     }
 
     .visit-info .directions-link {
@@ -1569,14 +1694,34 @@ h3 {
 
     .visit-map {
         margin-top: 0;
+        padding: 0;
     }
 
     .visit-map iframe {
-        height: 300px;
+        height: 280px;
         display: block;
+        border-radius: 4px;
     }
 
-    /* Footer */
+    .info-block {
+        margin-bottom: 1.5rem;
+    }
+
+    .info-block p {
+        font-size: 0.95rem;
+    }
+
+    .directions-link {
+        margin-top: 1.5rem;
+        font-size: 0.75rem;
+        min-height: 44px;
+    }
+
+    /* ── Footer ── */
+    .footer-container {
+        padding: 3rem var(--gutter) 2rem;
+    }
+
     .footer-top {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1591,8 +1736,33 @@ h3 {
         justify-content: center;
     }
 
+    .footer-tagline {
+        font-size: 0.85rem;
+    }
+
     .footer-socials {
         justify-content: center;
+    }
+
+    .footer-socials a {
+        width: 44px;
+        height: 44px;
+    }
+
+    .footer-column h5 {
+        font-size: 0.88rem;
+        margin-bottom: 1rem;
+    }
+
+    .footer-column ul li {
+        font-size: 0.82rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-column ul li a {
+        display: inline-block;
+        min-height: 44px;
+        line-height: 44px;
     }
 
     .footer-bottom {
@@ -1601,33 +1771,189 @@ h3 {
         text-align: center;
     }
 
+    .footer-bottom p {
+        font-size: 0.72rem;
+    }
+
     .footer-legal {
         gap: 1rem;
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    /* Back to top */
+    .footer-legal a {
+        font-size: 0.7rem;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* ── Back to top ── */
     .back-to-top {
-        bottom: 1.5rem;
-        right: 1.5rem;
+        bottom: 1.2rem;
+        right: 1.2rem;
         width: 44px;
         height: 44px;
     }
+
+    /* ── Reveal system – reduce motion for mobile rhythm ── */
+    .reveal {
+        transform: translateY(20px);
+    }
+
+    .reveal-stagger > * {
+        transform: translateY(15px);
+    }
 }
 
-/* Small mobile */
+/* ============================================================
+   RESPONSIVE — Small Mobile (iPhone SE / 375px and below)
+   ============================================================ */
 @media (max-width: 400px) {
     .hero-title {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
+        letter-spacing: -0.015em;
+    }
+
+    .hero-subtitle {
+        font-size: 0.88rem;
+    }
+
+    .hero-eyebrow {
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
     }
 
     .menu-tabs {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+    }
+
+    .menu-tab-btn {
+        width: 100%;
+        justify-content: center;
     }
 
     .pairing-selector {
-        gap: 0.6rem;
+        gap: 0.5rem;
+    }
+
+    .pairing-btn {
+        padding: 0.75rem 0.9rem;
+    }
+
+    .pairing-btn .btn-text {
+        font-size: 0.78rem;
+    }
+
+    .pairing-card {
+        padding: 1rem;
+    }
+
+    .pair-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .pair-desc {
+        font-size: 0.85rem;
+    }
+
+    .gallery-track img {
+        height: 190px;
+    }
+
+    .def-title {
+        font-size: 2rem;
+        letter-spacing: 0.12em;
+    }
+
+    .visit-map iframe {
+        height: 240px;
+    }
+
+    .philosophy-image-wrapper {
+        height: 42vh;
+        max-height: 320px;
+    }
+
+    .philosophy-content {
+        padding: 1rem var(--gutter) 3rem;
+    }
+
+    .philosophy-content p {
+        font-size: 0.92rem;
+    }
+
+    .section-header {
+        margin-bottom: clamp(2rem, 5vh, 3.5rem);
+    }
+
+    .footer-top {
+        gap: 1.5rem;
+    }
+
+    .footer-column h5 {
+        font-size: 0.82rem;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — Tall Phones (aspect-ratio adjustment)
+   ============================================================ */
+@media (max-width: 768px) and (min-height: 700px) {
+    .hero {
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-content {
+        padding-bottom: 4rem;
+    }
+
+    .scroll-cue {
+        position: absolute;
+        bottom: clamp(2rem, 5vh, 4rem);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .scroll-cue.visible {
+        transform: translateX(-50%);
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — Landscape Mobile
+   ============================================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 5vh, 3rem);
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow {
+        margin-bottom: 0.8rem;
+    }
+
+    .scroll-line {
+        height: 25px;
+    }
+
+    .philosophy-image-wrapper {
+        height: 70vh;
+        max-height: none;
+    }
+
+    .nav-overlay-content a {
+        font-size: 1.5rem;
+        padding: 0.4em 0;
     }
 }
