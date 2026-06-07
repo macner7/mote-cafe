@@ -1546,6 +1546,10 @@ h3 {
     }
 
     /* Visit */
+    .visit .container {
+        padding-top: 0;
+    }
+
     .visit-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -1562,10 +1566,12 @@ h3 {
 
     .visit-map {
         order: 0;
+        margin-top: 0;
     }
 
     .visit-map iframe {
         height: 300px;
+        display: block;
     }
 
     /* Footer */
