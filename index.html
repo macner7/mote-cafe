@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MÖTE | Specialty Coffee & Swedish Fika — Piraeus</title>
+    <meta name="description" content="MÖTE is a premium specialty coffee sanctuary in Piraeus, Greece. Dedicated to the Swedish art of Fika — slow down, sip intentionally, connect deeply.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: DM Serif Display (cinematic display), Fraunces (optical serif), Inter (modern sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="images/logo.jpg" alt="MÖTE Logo" class="logo-icon">
+                <span>MÖTE</span>
+            </a>
+            <div class="nav-links">
+                <a href="#fika">The Ritual</a>
+                <a href="#menu">Offering</a>
+                <a href="#pairing">Pairings</a>
+                <a href="#visit">Visit</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="nav-overlay" id="nav-overlay">
+        <nav class="nav-overlay-content">
+            <a href="#fika">The Ritual</a>
+            <a href="#menu">Offering</a>
+            <a href="#pairing">Pairings</a>
+            <a href="#visit">Visit</a>
+        </nav>
+        <div class="nav-overlay-footer">
+            <p>154 Praxitelous, Piraeus</p>
+            <p>Mon — Sat / 07:30 – 21:30</p>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero — Cinematic Full-Bleed -->
+        <section class="hero" id="home">
+            <div class="hero-media">
+                <img src="images/cover.jpg" alt="Specialty coffee and warm atmosphere at MÖTE café" class="hero-img" id="hero-img">
+                <div class="hero-grain"></div>
+                <div class="hero-vignette"></div>
+            </div>
+            <div class="hero-content">
+                <span class="hero-eyebrow" id="hero-eyebrow">Piraeus, Greece</span>
+                <h1 class="hero-title" id="hero-title">A Swedish Möte</h1>
+                <p class="hero-subtitle" id="hero-subtitle">Specialty coffee. Swedish fika. <br>A moment to breathe.</p>
+                <div class="scroll-cue" id="scroll-cue">
+                    <span>Scroll</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy — The Ritual of Fika & Lagom -->
+        <section class="philosophy" id="fika">
+            <div class="philosophy-image-wrapper">
+                <img src="images/621799567_18037394078755387_5032370032714795248_n.jpg"
+                    alt="MÖTE barista crafting specialty coffee" class="philosophy-img">
+            </div>
+            <div class="philosophy-content reveal">
+                <span class="label">The Ritual</span>
+                <h2>To slow down is not indulgence. It is practice.</h2>
+                <p>Fika is the Swedish art of the intentional pause — a moment to set everything down, cradle a cup,
+                    and simply be present. MÖTE, named for the Swedish word for <em>meeting</em>, is where this ritual
+                    lives. Clean Scandinavian light meets the warmth of hand-scored pastries. A space that is
+                    <em>lagom</em> — just enough.</p>
+            </div>
+        </section>
+
+        <!-- Horizontal Image Gallery -->
+        <section class="gallery" id="gallery">
+            <div class="gallery-track" id="gallery-track">
+                <img src="images/out.jpg" alt="MÖTE café exterior">
+                <img src="images/469276581_17969972219803631_2261648514776107215_n.jpg" alt="Coffee preparation">
+                <img src="images/482353722_633061116153341_1772977118099903969_n.jpg" alt="Interior atmosphere">
+                <img src="images/469221690_17969968943803631_3225462497463304634_n.jpg" alt="Fresh pastries">
+                <img src="images/515504996_17994661865803631_379811639104698673_n.jpg" alt="Latte art">
+                <img src="images/491689628_661590469967072_8772545290354545613_n.jpg" alt="Barista at work">
+                <img src="images/625114309_18165085792397144_1194228851103273685_n.jpg" alt="Coffee beans">
+                <img src="images/500056106_695466493179294_767985321428965805_n.jpg" alt="Cozy seating">
+                <img src="images/out3.jpg" alt="Street view">
+                <img src="images/croissant.jpg" alt="Golden croissant">
+            </div>
+        </section>
+
+        <!-- Menu — The Offering -->
+        <section class="menu" id="menu">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="label">The Offering</span>
+                    <h2>Roasted with Intention</h2>
+                    <div class="menu-tabs">
+                        <button class="menu-tab-btn active" data-menu-tab="text">Specialty Board</button>
+                        <button class="menu-tab-btn" data-menu-tab="visual">Visual Menu</button>
+                    </div>
+                </div>
+
+                <!-- Editorial Text Menu -->
+                <div class="menu-tab-content active" id="menu-tab-text">
+                    <div class="menu-editorial">
+                        <div class="menu-category reveal">
+                            <div class="menu-category-header">
+                                <h3>Specialty Coffee</h3>
+                                <span class="cat-count">04 selections</span>
+                            </div>
+                            <ul class="menu-items reveal-stagger">
+                                <li class="menu-item">
+                                    <span class="menu-item-name">Filter Coffee</span>
+                                    <span class="menu-item-desc">Single origin micro-lots by Create Athens</span>
+                                </li>
+                                <li class="menu-item">
+                                    <span class="menu-item-name">Cold Brew</span>
+                                    <span class="menu-item-desc">Slow-steeped, clean, effortlessly smooth</span>
+                                </li>
+                                <li class="menu-item">
+                                    <span class="menu-item-name">Espresso</span>
+                                    <span class="menu-item-desc">Double shot, sweet & vibrant</span>
+                                </li>
+                                <li class="menu-item">
+                                    <span class="menu-item-name">Flat White</span>
+                                    <span class="menu-item-desc">Silky steamed milk, perfect equilibrium</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="menu-category reveal">
+                            <div class="menu-category-header">
+                                <h3>Cakes & Bakes</h3>
+                                <span class="cat-count">04 selections</span>
+                            </div>
+                            <ul class="menu-items reveal-stagger">
+                                <li class="menu-item">
+                                    <span class="menu-item-name">Carrot Cake</span>
+                                    <span class="menu-item-desc">Moist, warmly spiced, rich cream cheese</span>
+                                </li>
+                                <li class="menu-item">
+                                    <span class="menu-item-name">Butter Croissant</span>
+                                    <span class="menu-item-desc">Flaky, golden, baked before dawn</span>
+                                </li>
+                                <li class="menu-item">
+                                    <span class="menu-item-name">Babka Pistachio</span>
+                                    <span class="menu-item-desc">Twisted brioche, pistachio cream swirl</span>
+                                </li>
+                                <li class="menu-item">
+                                    <span class="menu-item-name">Double Dark Cookie</span>
+                                    <span class="menu-item-desc">Soft-baked, premium dark chocolate chunks</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="menu-category reveal">
+                            <div class="menu-category-header">
+                                <h3>Between Breads</h3>
+                                <span class="cat-count">04 selections</span>
+                            </div>
+                            <ul class="menu-items reveal-stagger">
+                                <li class="menu-item">
+                                    <span class="menu-item-name">Truffle Bresaola</span>
+                                    <span class="menu-item-desc">Aged bresaola, truffle paste, rocket, sourdough</span>
+                                </li>
+                                <li class="menu-item">
+                                    <span class="menu-item-name">Salmon Bagel</span>
+                                    <span class="menu-item-desc">Cured salmon, cream cheese, fresh dill</span>
+                                </li>
+                                <li class="menu-item">
+                                    <span class="menu-item-name">Avo Toast</span>
+                                    <span class="menu-item-desc">Smashed avocado, cherry tomato, microgreens</span>
+                                </li>
+                                <li class="menu-item">
+                                    <span class="menu-item-name">Möte Egg Salad</span>
+                                    <span class="menu-item-desc">Signature house-made, soft brioche bun</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Menu -->
+                <div class="menu-tab-content" id="menu-tab-visual">
+                    <div class="menu-boards-grid">
+                        <div class="menu-board-card reveal">
+                            <a href="Menu – Möte_files/mote_piraeus_menu_easter_01.jpg" target="_blank"
+                                class="menu-board-link">
+                                <img src="Menu – Möte_files/mote_piraeus_menu_easter_01.jpg" alt="MÖTE Menu Page 1"
+                                    class="menu-board-img">
+                                <div class="menu-board-overlay">
+                                    <span class="zoom-icon">⤢</span>
+                                    <span>View Full Menu</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="menu-board-card reveal">
+                            <a href="Menu – Möte_files/mote_piraeus_menu_easter_02.jpg" target="_blank"
+                                class="menu-board-link">
+                                <img src="Menu – Möte_files/mote_piraeus_menu_easter_02.jpg" alt="MÖTE Menu Page 2"
+                                    class="menu-board-img">
+                                <div class="menu-board-overlay">
+                                    <span class="zoom-icon">⤢</span>
+                                    <span>View Full Menu</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Definition Banner — MÖTE -->
+        <section class="visual-break">
+            <div class="definition-wrapper reveal">
+                <h2 class="def-title">MÖTE</h2>
+                <p class="def-phonetic">möte (Swedish) · /ˈmøː.tɛ/</p>
+                <p class="def-meaning"><strong>meeting;</strong> an unplanned encounter or an agreed upon event</p>
+                <p class="def-quote">"A moment shared over coffee. An encounter with intention."</p>
+            </div>
+        </section>
+
+        <!-- Fika Pairing Guide -->
+        <section class="pairing" id="pairing">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="label">The Perfect Match</span>
+                    <h2>Perfect Together</h2>
+                    <p class="section-subtitle">Every roast has a counterpart. Every bite, a companion.</p>
+                </div>
+
+                <div class="pairing-container reveal">
+                    <div class="pairing-selector">
+                        <button class="pairing-btn active magnetic" data-pairing="filter">
+                            <span class="btn-num">01</span>
+                            <span class="btn-text">Filter Coffee & Double Dark Cookie</span>
+                        </button>
+                        <button class="pairing-btn magnetic" data-pairing="espresso">
+                            <span class="btn-num">02</span>
+                            <span class="btn-text">Espresso & Butter Croissant</span>
+                        </button>
+                        <button class="pairing-btn magnetic" data-pairing="flatwhite">
+                            <span class="btn-num">03</span>
+                            <span class="btn-text">Flat White & Carrot Cake</span>
+                        </button>
+                    </div>
+
+                    <div class="pairing-display">
+                        <div class="pairing-card active" id="pair-filter">
+                            <div class="pair-info">
+                                <span class="pair-tag">Fruity & Sweet</span>
+                                <h3>Filter Coffee & Double Dark Cookie</h3>
+                                <p class="pair-desc">Our single origin Filter, roasted by Create Athens, opens with
+                                    vibrant floral and fruit notes. Paired with a freshly baked Double Dark Cookie, the
+                                    coffee's clean acidity cuts through rich cocoa sweetness — a conversation between
+                                    light and dark.</p>
+                                <div class="flavor-notes">
+                                    <span>Dark Chocolate</span>
+                                    <span>Floral & Fruity</span>
+                                    <span>Balanced Acidity</span>
+                                </div>
+                            </div>
+                            <div class="pair-image">
+                                <img src="images/cover.jpg" alt="Filter Coffee and Double Dark Cookie pairing">
+                            </div>
+                        </div>
+
+                        <div class="pairing-card reverse" id="pair-espresso">
+                            <div class="pair-info">
+                                <span class="pair-tag">Classic Morning</span>
+                                <h3>Espresso & Butter Croissant</h3>
+                                <p class="pair-desc">A double shot of our Create Athens blend — rich cacao, dark cherry
+                                    undertones. Alongside a flaky, golden croissant: bold bitterness meets buttery
+                                    warmth. The simplest rituals are often the most complete.</p>
+                                <div class="flavor-notes">
+                                    <span>Dark Chocolate</span>
+                                    <span>Flaky Butter</span>
+                                    <span>Cherry Acidity</span>
+                                </div>
+                            </div>
+                            <div class="pair-image">
+                                <img src="images/croissant.jpg" alt="Espresso and Butter Croissant pairing">
+                            </div>
+                        </div>
+
+                        <div class="pairing-card" id="pair-flatwhite">
+                            <div class="pair-info">
+                                <span class="pair-tag">Cozy Comfort</span>
+                                <h3>Flat White & Carrot Cake</h3>
+                                <p class="pair-desc">Silky steamed milk meets our smooth blend — toasted hazelnut
+                                    warmth. A forkful of moist, spiced carrot cake with cream cheese. The kind of
+                                    afternoon you don't want to end.</p>
+                                <div class="flavor-notes">
+                                    <span>Toasted Hazelnut</span>
+                                    <span>Warm Spices</span>
+                                    <span>Sweet Frosting</span>
+                                </div>
+                            </div>
+                            <div class="pair-image">
+                                <img src="images/capucino.jpg" alt="Flat White and Carrot Cake pairing">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visit -->
+        <section class="visit" id="visit">
+            <div class="container">
+                <div class="visit-grid">
+                    <div class="visit-info reveal">
+                        <span class="label">Find Us</span>
+                        <h2>Come Find Us</h2>
+                        <div class="info-block">
+                            <p>154 Praxitelous Street</p>
+                            <p>Piraeus 185 35</p>
+                        </div>
+                        <div class="info-block">
+                            <h4>Hours</h4>
+                            <p>Mon — Sat / 07:30 – 21:30</p>
+                            <p>Sun / Closed</p>
+                        </div>
+                        <div class="info-block">
+                            <h4>Contact</h4>
+                            <p>hello@mote-coffee.gr</p>
+                        </div>
+                        <a href="https://maps.google.com/?q=Möte+Specialty+Coffee+Piraeus" target="_blank"
+                            rel="noopener noreferrer" class="directions-link magnetic">
+                            Get Directions
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="visit-map reveal">
+                        <iframe
+                            src="https://maps.google.com/maps?q=M%C3%B6te%20Specialty%20Coffee,%20%CE%A0%CF%81%CE%B1%CE%BE%CE%B9%CF%84%CE%AD%CE%BB%CE%BF%CF%85%CF%82%20154,%20%CE%A0%CE%B5%CE%B9%CF%81%CE%B1%CE%B9%CE%AC%CF%82%20185%2035&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                            width="100%" height="460" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" title="MÖTE café location on Google Maps"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="images/logo.jpg" alt="MÖTE Logo" class="logo-icon">
+                        <span>MÖTE</span>
+                    </a>
+                    <p class="footer-tagline">A specialty coffee sanctuary in Piraeus, dedicated to the Swedish art of
+                        Fika — slow down, sip intentionally, connect deeply.</p>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/mote.coffee/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram" class="magnetic">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/mote.coffee/?locale=el_GR/" target="_blank"
+                            rel="noopener noreferrer" aria-label="Facebook" class="magnetic">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Explore</h5>
+                    <ul>
+                        <li><a href="#fika">The Ritual</a></li>
+                        <li><a href="#menu">Offering</a></li>
+                        <li><a href="#pairing">Pairings</a></li>
+                        <li><a href="#visit">Find Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Visit</h5>
+                    <ul>
+                        <li>154 Praxitelous Street</li>
+                        <li>Piraeus 185 35</li>
+                        <li>Mon — Sat / 07:30 – 21:30</li>
+                        <li>Sun / Closed</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="mailto:hello@mote-coffee.gr">hello@mote-coffee.gr</a></li>
+                        <li><a href="tel:+302104123456">+30 210 412 3456</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 MÖTE Specialty Coffee. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
