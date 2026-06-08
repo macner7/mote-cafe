@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MÖTE — Brand Style Guide & UI Kit</title>
+    <!-- Same Google Fonts as main site -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css?v=1.0.4">
+
+    <style>
+        /* Custom layout styles for the Style Guide page */
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 1px solid rgba(44, 62, 45, 0.15);
+            padding-bottom: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .guide-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--accent-deep);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .guide-subtitle {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--accent-warm);
+            font-weight: 400;
+        }
+
+        .section-card {
+            background: var(--white);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(26, 26, 24, 0.02);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--accent-deep);
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--bg-secondary);
+            padding-bottom: 1rem;
+        }
+
+        /* Color Palette Grid */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .color-card {
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--bg-primary);
+            transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
+        }
+
+        .color-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(26, 26, 24, 0.08);
+        }
+
+        .color-swatch {
+            height: 120px;
+            width: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .color-swatch::after {
+            content: 'Copy HEX';
+            position: absolute;
+            inset: 0;
+            background: rgba(44, 62, 45, 0.8);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .color-swatch:hover::after {
+            opacity: 1;
+        }
+
+        .color-info {
+            padding: 1.5rem;
+        }
+
+        .color-name {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .color-var {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--accent-warm);
+            margin-bottom: 0.5rem;
+        }
+
+        .color-hex {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--accent-deep);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            box-shadow: 0 10px 30px rgba(44, 62, 45, 0.2);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s var(--ease-out-expo);
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typography Showcase */
+        .typo-showcase {
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        .typo-row {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--bg-secondary);
+        }
+
+        .typo-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .typo-meta {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .typo-meta h5 {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-deep);
+            margin-bottom: 0.5rem;
+        }
+
+        .typo-preview-display {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+        }
+
+        .typo-preview-serif {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            line-height: 1.2;
+            color: var(--accent-deep);
+        }
+
+        .typo-preview-sans {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* UI Components Showcase */
+        .component-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .typo-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .component-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comp-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            align-items: flex-start;
+        }
+
+        .comp-label {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-warm);
+        }
+
+        .scroll-cue-demo {
+            position: relative;
+            height: 150px;
+            width: 100%;
+            background: var(--accent-deep);
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .scroll-cue-demo .scroll-cue {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+            bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="guide-title">MÖTE</h1>
+        <div class="guide-subtitle">Brand Style Guide & UI Kit Showcase</div>
+    </header>
+
+    <!-- SECTION 1: Colors -->
+    <section class="section-card">
+        <h2 class="section-title">01. Color Palette</h2>
+        <div class="color-grid">
+            <!-- Swatch 1 -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #F7F4EF;" onclick="copyHex(this, '#F7F4EF')"></div>
+                <div class="color-info">
+                    <div class="color-name">Nordic Alabaster</div>
+                    <div class="color-var">--bg-primary</div>
+                    <div class="color-hex">#F7F4EF</div>
+                </div>
+            </div>
+            <!-- Swatch 2 -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #EFEBE4;" onclick="copyHex(this, '#EFEBE4')"></div>
+                <div class="color-info">
+                    <div class="color-name">Pebble Grey</div>
+                    <div class="color-var">--bg-secondary</div>
+                    <div class="color-hex">#EFEBE4</div>
+                </div>
+            </div>
+            <!-- Swatch 3 -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #E8E3DA;" onclick="copyHex(this, '#E8E3DA')"></div>
+                <div class="color-info">
+                    <div class="color-name">Soft Driftwood</div>
+                    <div class="color-var">--bg-tertiary</div>
+                    <div class="color-hex">#E8E3DA</div>
+                </div>
+            </div>
+            <!-- Swatch 4 -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #1A1A18;" onclick="copyHex(this, '#1A1A18')"></div>
+                <div class="color-info">
+                    <div class="color-name">Charcoal Onyx</div>
+                    <div class="color-var">--text-primary</div>
+                    <div class="color-hex">#1A1A18</div>
+                </div>
+            </div>
+            <!-- Swatch 5 -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #6B6560;" onclick="copyHex(this, '#6B6560')"></div>
+                <div class="color-info">
+                    <div class="color-name">Warm Taupe</div>
+                    <div class="color-var">--text-secondary</div>
+                    <div class="color-hex">#6B6560</div>
+                </div>
+            </div>
+            <!-- Swatch 6 -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #9A9490;" onclick="copyHex(this, '#9A9490')"></div>
+                <div class="color-info">
+                    <div class="color-name">Muted Clay</div>
+                    <div class="color-var">--text-tertiary</div>
+                    <div class="color-hex">#9A9490</div>
+                </div>
+            </div>
+            <!-- Swatch 7 -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #2C3E2D;" onclick="copyHex(this, '#2C3E2D')"></div>
+                <div class="color-info">
+                    <div class="color-name">Swedish Fir</div>
+                    <div class="color-var">--accent-deep</div>
+                    <div class="color-hex">#2C3E2D</div>
+                </div>
+            </div>
+            <!-- Swatch 8 -->
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #C47D2A;" onclick="copyHex(this, '#C47D2A')"></div>
+                <div class="color-info">
+                    <div class="color-name">Honey Amber</div>
+                    <div class="color-var">--accent-warm</div>
+                    <div class="color-hex">#C47D2A</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Typography -->
+    <section class="section-card">
+        <h2 class="section-title">02. Typography System</h2>
+        <div class="typo-showcase">
+            <!-- Row 1 -->
+            <div class="typo-row">
+                <div class="typo-meta">
+                    <h5>Display Font</h5>
+                    <p>DM Serif Display</p>
+                    <p>Weight: 400 (Regular)</p>
+                    <p>Variable: --font-display</p>
+                </div>
+                <div class="typo-preview-display">
+                    A Swedish Möte.
+                </div>
+            </div>
+            <!-- Row 2 -->
+            <div class="typo-row">
+                <div class="typo-meta">
+                    <h5>Editorial Serif</h5>
+                    <p>Fraunces</p>
+                    <p>Weights: 300, 400, 500, 600</p>
+                    <p>Variable: --font-serif</p>
+                </div>
+                <div class="typo-preview-serif">
+                    To slow down is not indulgence. It is practice.
+                </div>
+            </div>
+            <!-- Row 3 -->
+            <div class="typo-row">
+                <div class="typo-meta">
+                    <h5>Interface Sans</h5>
+                    <p>Inter</p>
+                    <p>Weights: 300, 400, 500, 600</p>
+                    <p>Variable: --font-sans</p>
+                </div>
+                <div class="typo-preview-sans">
+                    Fika is the Swedish art of the intentional pause — a moment to set everything down, cradle a cup, and simply be present. Named for the Swedish word for meeting, it is where this ritual lives.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: UI Components -->
+    <section class="section-card">
+        <h2 class="section-title">03. UI Components & Interactions</h2>
+        <div class="component-grid">
+            <!-- Comp 1 -->
+            <div class="comp-container">
+                <span class="comp-label">Menu Tab Buttons (.menu-tab-btn)</span>
+                <div style="display: flex; gap: 10px;">
+                    <button class="menu-tab-btn">Specialty Board</button>
+                    <button class="menu-tab-btn active">Visual Menu</button>
+                </div>
+            </div>
+            <!-- Comp 2 -->
+            <div class="comp-container">
+                <span class="comp-label">Action Link (.directions-link)</span>
+                <a href="#" class="directions-link magnetic">
+                    Get Directions
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+            <!-- Comp 3 -->
+            <div class="comp-container" style="grid-column: span 2;">
+                <span class="comp-label">Segment Card Selector (.pairing-btn)</span>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%;">
+                    <button class="pairing-btn magnetic">
+                        <span class="btn-num">01</span>
+                        <span class="btn-text">Filter Coffee & Double Dark Cookie</span>
+                    </button>
+                    <button class="pairing-btn active magnetic">
+                        <span class="btn-num">02</span>
+                        <span class="btn-text">Espresso & Butter Croissant</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Comp 4 -->
+            <div class="comp-container" style="grid-column: span 2;">
+                <span class="comp-label">Scroll Indicator Cue (.scroll-cue)</span>
+                <div class="scroll-cue-demo">
+                    <div class="scroll-cue" id="scroll-cue">
+                        <span>Scroll</span>
+                        <div class="scroll-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOAST POPUP FOR CLIPBOARD -->
+    <div class="toast" id="toast">HEX code copied to clipboard!</div>
+
+    <script>
+        // Copy to clipboard function
+        function copyHex(element, hex) {
+            navigator.clipboard.writeText(hex).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            });
+        }
+
+        // Add magnetic animation effects if hover is supported
+        document.addEventListener('DOMContentLoaded', () => {
+            const magneticElements = document.querySelectorAll('.magnetic');
+            if (window.matchMedia('(hover: hover)').matches) {
+                magneticElements.forEach(el => {
+                    el.addEventListener('mousemove', (e) => {
+                        const rect = el.getBoundingClientRect();
+                        const x = (e.clientX - rect.left - rect.width / 2) * 0.25;
+                        const y = (e.clientY - rect.top - rect.height / 2) * 0.25;
+                        el.style.transform = `translate(${x}px, ${y}px)`;
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        el.style.transform = 'translate(0, 0)';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -459,18 +459,22 @@ h3 {
 }
 
 .scroll-cue {
+    position: absolute;
+    bottom: clamp(1.5rem, 4vh, 3rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
     opacity: 0;
-    transform: translateY(15px);
     transition: all var(--t-medium) var(--ease-out-expo);
+    z-index: 10;
 }
 
 .scroll-cue.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
 
 .scroll-cue span {
@@ -1911,14 +1915,7 @@ h3 {
     }
 
     .scroll-cue {
-        position: absolute;
         bottom: clamp(2rem, 5vh, 4rem);
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .scroll-cue.visible {
-        transform: translateX(-50%);
     }
 }
 
